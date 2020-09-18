@@ -1,0 +1,39 @@
+CREATE TABLE [dbo].[project](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[siteName] [nvarchar](100) NULL,
+	[domain] [nvarchar](100) NULL,
+	[projectId] [nvarchar](100) NULL,
+	[projectName] [nvarchar](400) NULL,
+	[projectNumber] [nvarchar](100) NULL,
+	[projectUrl] [nvarchar](100) NULL,
+	[annexUrl] [nvarchar](max) NULL,
+	[createTime] [datetime] NULL,
+ CONSTRAINT [PK_project] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[project] ADD  DEFAULT (getdate()) FOR [createTime]
+GO
+
+CREATE TABLE [dbo].[recognizance](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[siteName] [nvarchar](100) NULL,
+	[domain] [nvarchar](100) NULL,
+	[projectId] [nvarchar](100) NULL,
+	[projectName] [nvarchar](400) NULL,
+	[projectNumber] [nvarchar](100) NULL,
+	[projectUrl] [nvarchar](100) NULL,
+	[company] [nvarchar](max) NULL,
+	[createTime] [datetime] NULL,
+ CONSTRAINT [PK_recognizance] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[recognizance] ADD  DEFAULT (getdate()) FOR [createTime]
+GO
